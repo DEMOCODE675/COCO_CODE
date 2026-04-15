@@ -1,0 +1,159 @@
+{
+  "frameworks": {
+    "react": {
+      "packages": ["react", "react-dom"],
+      "devDependencies": ["@types/react", "@types/react-dom", "@vitejs/plugin-react"],
+      "description": "React library for building UI"
+    },
+    "next": {
+      "packages": ["next", "react", "react-dom"],
+      "devDependencies": ["@types/node", "@types/react", "@types/react-dom"],
+      "description": "Next.js React framework"
+    },
+    "vue": {
+      "packages": ["vue"],
+      "devDependencies": ["@vitejs/plugin-vue"],
+      "description": "Vue.js framework"
+    },
+    "svelte": {
+      "packages": ["svelte"],
+      "devDependencies": ["@sveltejs/vite-plugin-svelte"],
+      "description": "Svelte framework"
+    },
+    "express": {
+      "packages": ["express", "cors", "helmet"],
+      "devDependencies": ["@types/express", "@types/node"],
+      "description": "Express.js backend framework"
+    },
+    "react-native": {
+      "packages": ["expo", "react", "react-native", "expo-status-bar"],
+      "devDependencies": ["babel-preset-expo", "@expo/ngrok"],
+      "description": "React Native mobile app (Expo)"
+    },
+    "fastapi": {
+      "packages": [],
+      "devDependencies": [],
+      "description": "FastAPI Python framework (handled separately)"
+    },
+    "django": {
+      "packages": [],
+      "devDependencies": [],
+      "description": "Django Python framework (handled separately)"
+    }
+  },
+  "styling": {
+    "tailwind": {
+      "packages": ["tailwindcss", "postcss", "@tailwindcss/postcss"],
+      "devDependencies": [],
+      "configFile": "tailwind.config.js",
+      "description": "Tailwind CSS utility framework"
+    },
+    "scss": {
+      "packages": ["sass"],
+      "devDependencies": [],
+      "description": "Sass CSS preprocessor"
+    },
+    "css": {
+      "packages": [],
+      "devDependencies": [],
+      "description": "Plain CSS"
+    },
+    "bootstrap": {
+      "packages": ["bootstrap"],
+      "devDependencies": [],
+      "description": "Bootstrap framework"
+    },
+    "material-ui": {
+      "packages": ["@mui/material", "@emotion/react", "@emotion/styled"],
+      "devDependencies": [],
+      "description": "Material-UI component library"
+    },
+    "native": {
+      "packages": [],
+      "devDependencies": [],
+      "description": "Native mobile styling"
+    }
+  },
+  "databases": {
+    "mongodb": {
+      "packages": ["mongoose"],
+      "devDependencies": ["@types/mongoose"],
+      "description": "MongoDB with Mongoose"
+    },
+    "postgresql": {
+      "packages": ["pg", "sequelize"],
+      "devDependencies": ["@types/pg"],
+      "description": "PostgreSQL with Sequelize"
+    },
+    "firebase": {
+      "packages": ["firebase", "firebase-admin"],
+      "devDependencies": [],
+      "description": "Firebase backend"
+    },
+    "mysql": {
+      "packages": ["mysql2", "sequelize"],
+      "devDependencies": [],
+      "description": "MySQL database"
+    },
+    "supabase": {
+      "packages": ["@supabase/supabase-js"],
+      "devDependencies": [],
+      "description": "Supabase (PostgreSQL)"
+    }
+  },
+  "utilities": {
+    "axios": {
+      "packages": ["axios"],
+      "devDependencies": ["@types/axios"],
+      "description": "HTTP client library"
+    },
+    "lodash": {
+      "packages": ["lodash"],
+      "devDependencies": ["@types/lodash"],
+      "description": "Utility library"
+    },
+    "dotenv": {
+      "packages": ["dotenv"],
+      "devDependencies": [],
+      "description": "Environment variable management"
+    },
+    "jest": {
+      "packages": [],
+      "devDependencies": ["jest", "@testing-library/react"],
+      "description": "Testing framework"
+    },
+    "eslint": {
+      "packages": [],
+      "devDependencies": ["eslint", "eslint-config-prettier", "prettier"],
+      "description": "Code linting and formatting"
+    },
+    "typescript": {
+      "packages": [],
+      "devDependencies": ["typescript", "@types/node", "ts-node"],
+      "description": "TypeScript support"
+    }
+  },
+  "projectTemplates": {
+    "frontend": {
+      "description": "Frontend web application",
+      "defaultFramework": "react",
+      "defaultStyling": "tailwind"
+    },
+    "backend": {
+      "description": "Backend API server",
+      "defaultFramework": "express",
+      "defaultDatabase": "mongodb"
+    },
+    "fullstack": {
+      "description": "Full-stack web application",
+      "defaultFramework": "next",
+      "defaultStyling": "tailwind",
+      "defaultDatabase": "mongodb"
+    },
+    "mobile": {
+      "description": "Mobile application",
+      "defaultFramework": "react-native",
+      "defaultStyling": "native"
+    }
+  }
+}
