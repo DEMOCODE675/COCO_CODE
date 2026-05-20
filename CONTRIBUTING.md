@@ -310,9 +310,9 @@ If you add a new framework:
 2. Add it to example sessions
 3. Test that examples still work
 
-### Updating config.json Comments
+### Updating config.json Entries
 
-Consider adding brief comments:
+Use the `description` field to document new options (JSON does not support comments):
 
 ```json
 {
@@ -364,7 +364,7 @@ if language.lower() == "typescript":
 - Check existing issues for answers
 - Read through the codebase
 - Check module docstrings
-- Review EXAMPLES.md for usage patterns
+- Review the README examples for usage patterns
 
 ## Thank You!
 
@@ -373,5 +373,4 @@ Your contributions make this tool better for everyone. Whether it's fixing bugs,
 ---
 
 **Happy Contributing!** 
-
 
