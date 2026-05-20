@@ -4,9 +4,19 @@ A powerful, extensible Python CLI tool that generates complete web projects dyna
 
 ## Features
 
+**Stack Coverage**
+
+- Frontend: React, Next.js, Vue, Svelte
+- Backend: Express, FastAPI, Django
+- Mobile: React Native (Expo)
+- Styling: Tailwind, Sass, Bootstrap, Material UI, plain CSS, native (mobile)
+- Databases: MongoDB, PostgreSQL, MySQL, Firebase, Supabase
+- Utilities: Axios, Lodash, Dotenv, Jest, ESLint, TypeScript
+
 **Dynamic Package Selection**
 
 - Select from predefined frameworks, styling, databases, and utilities
+- Choose by number, name, ranges (e.g., `1-3`), or `all`
 - Add custom npm packages on the fly
 - Smart package dependency resolution
 
@@ -26,10 +36,10 @@ A powerful, extensible Python CLI tool that generates complete web projects dyna
 
 **Package Management**
 
-- Automatic npm initialization
+- Automatic npm initialization (when npm-based frameworks are selected)
 - Smart dependency installation (dev vs production)
 - Duplicate detection and removal
-- Framework package mapping
+- Framework package mapping from `config.json`
 
 **Extensibility**
 
@@ -42,31 +52,22 @@ A powerful, extensible Python CLI tool that generates complete web projects dyna
 ### Prerequisites
 
 - Python 3.7+
-- Node.js and npm installed and in PATH
+- Node.js and npm in PATH (required for React, Next.js, Vue, Svelte, Express, React Native)
 - Windows, macOS, or Linux
+
+> FastAPI and Django projects generate Python starter files and a `requirements.txt`.
+> Install those dependencies in the generated project with `pip install -r requirements.txt`.
 
 ### Quick Start
 
 ```bash
 # Clone the project
+git clone https://github.com/DEMOCODE675/COCO_CODE.git
 cd COCO_CODE
 
-# Run the CLI
+# Run the CLI (no extra Python dependencies required)
 python main.py
 ```
-
-## Public GitHub Launch
-
-To publish COCO_CODE as a public repository and grow adoption quickly, follow:
-
-- [GITHUB_LAUNCH.md](GITHUB_LAUNCH.md)
-
-That guide includes:
-
-- Local folder rename to COCO_CODE
-- Public GitHub repo creation steps
-- Release and visibility checklist
-- A 30-day growth plan for star velocity
 
 ## Usage Guide
 
@@ -84,18 +85,19 @@ That guide includes:
    - Language (JavaScript or TypeScript)
 
 3. **Select packages**
-   - Choose from available frameworks
+   - Choose by number, name, ranges like `1-3`, or `all`
    - Select styling solutions
    - Pick database options
    - Add utilities and tools
    - Option to add custom npm packages
+   - Mobile projects default to React Native + native styling if skipped
 
 4. **Review and confirm**
    - Verify your selections
    - Confirm the package list
    - Let the tool create your project!
 
-### Example Session
+### Example Session (trimmed)
 
 ```
  COCO_CODE CLI
@@ -118,27 +120,40 @@ Select (1-2): 2
   1. react - React library for building UI
   2. next - Next.js React framework
   3. vue - Vue.js framework
-  4. express - Express.js backend framework
+  4. svelte - Svelte framework
+  5. express - Express.js backend framework
+  6. react-native - React Native mobile app (Expo)
+  7. fastapi - FastAPI Python framework (handled separately)
+  8. django - Django Python framework (handled separately)
 
-Select frameworks: next express
+Select frameworks: 2 5
 
  Available Styling Options:
   1. tailwind - Tailwind CSS utility framework
   2. scss - Sass CSS preprocessor
+  3. css - Plain CSS
+  4. bootstrap - Bootstrap framework
+  5. material-ui - Material-UI component library
+  6. native - Native mobile styling
 
 Select styling: tailwind
 
  Available Databases:
   1. mongodb - MongoDB with Mongoose
-  2. firebase - Firebase backend
-  3. postgresql - PostgreSQL with Sequelize
+  2. postgresql - PostgreSQL with Sequelize
+  3. firebase - Firebase backend
+  4. mysql - MySQL database
+  5. supabase - Supabase (PostgreSQL)
 
 Select databases: mongodb
 
  Available Utilities:
   1. axios - HTTP client library
-  2. dotenv - Environment variable management
-  3. typescript - TypeScript support
+  2. lodash - Utility library
+  3. dotenv - Environment variable management
+  4. jest - Testing framework
+  5. eslint - Code linting and formatting
+  6. typescript - TypeScript support
 
 Select utilities: axios dotenv typescript
 
@@ -162,7 +177,7 @@ The configuration file defines all available packages and their npm equivalents:
   },
   "styling": {
     "tailwind": {
-      "packages": ["tailwindcss", "postcss", "autoprefixer"],
+      "packages": ["tailwindcss", "postcss", "@tailwindcss/postcss"],
       "devDependencies": [],
       "description": "Tailwind CSS utility framework"
     }
@@ -194,55 +209,78 @@ The configuration file defines all available packages and their npm equivalents:
 ```
 my-react-app/
  src/
-    components/
-    pages/
-    styles/
-    index.tsx
- public/
- package.json
- tsconfig.json
- tailwind.config.js
- postcss.config.js
- vite.config.js
- .gitignore
- .env.example
+    App.[ts|js]x
+    main.[ts|js]x
+  public/
+  index.html
+  package.json
+  tsconfig.json (if TypeScript)
+  tailwind.config.js (if Tailwind)
+  postcss.config.js (Tailwind or default for Vite frameworks)
+  vite.config.js (React/Vue/Svelte)
+  .gitignore
+  .env.example
 ```
 
 ### Backend Project
 
 ```
 my-api/
- src/
-    routes/
-    controllers/
-    models/
-    middleware/
-    config/
-    server.ts
- public/
- package.json
- tsconfig.json
- .gitignore
- .env.example
+  src/
+     routes/
+     controllers/
+     models/
+     middleware/
+     config/
+     server.[ts|js]
+  package.json
+  tsconfig.json (if TypeScript)
+  .gitignore
+  .env.example
 ```
 
 ### Fullstack Project
 
 ```
 my-app/
+  src/
+     app/               # Next.js app router (if Next selected)
+     routes/            # Backend routes (non-Next fullstack)
+     controllers/
+     models/
+     index.[ts|js]x     # Vite entry (non-Next fullstack)
+  server/
+  public/
+  package.json
+  tsconfig.json (if TypeScript)
+  .gitignore
+  .env.example
+```
+
+### Mobile Project (Expo)
+
+```
+my-mobile-app/
+ App.[ts|js]x
+ app.json
+ babel.config.js
  src/
-    components/
-    pages/
-    styles/
-    routes/
-    controllers/
-    models/
-    index.tsx
- server/
+ assets/
  package.json
- tsconfig.json
  .gitignore
  .env.example
+```
+
+### Python Backend (FastAPI/Django)
+
+```
+my-python-api/
+ src/
+   main.py          # FastAPI entrypoint (if selected)
+   manage.py        # Django helper (if selected)
+ requirements.txt
+ .env.example
+ .gitignore
 ```
 
 ## Advanced Features
@@ -251,7 +289,7 @@ my-app/
 
 The tool automatically generates appropriate scripts:
 
-**For React/Vue projects:**
+**For React/Vue/Svelte projects:**
 
 ```json
 {
@@ -282,6 +320,26 @@ The tool automatically generates appropriate scripts:
 }
 ```
 
+> JavaScript Express projects use `node src/server.js` for `dev`/`start` and skip the build step.
+
+**For React Native (Expo) projects:**
+
+```json
+{
+  "dev": "expo start --go",
+  "dev:auto": "expo start --go --tunnel || expo start --go",
+  "dev:tunnel": "expo start --go --tunnel",
+  "dev:clear": "expo start --go --clear",
+  "start": "expo start --go",
+  "android": "expo run:android",
+  "ios": "expo run:ios",
+  "web": "expo start --web"
+}
+```
+
+> FastAPI and Django starters skip npm initialization and instead generate `requirements.txt`
+> along with Python entrypoints in `src/`.
+
 ### TypeScript Configuration
 
 When TypeScript is selected:
@@ -300,9 +358,10 @@ PORT=5000
 NODE_ENV=development
 DATABASE_URL=your_database_url_here
 API_KEY=your_api_key_here
+SECRET_KEY=your_secret_key_here
 ```
 
-Copy to `.env.local` and fill in your actual values.
+Copy to `.env` (or `.env.local` if you prefer) and fill in your actual values.
 
 ## Project Structure
 
@@ -311,7 +370,6 @@ COCO_CODE/
  main.py                    # Entry point
  config.json                # Framework & package configuration
  README.md                  # This file
- EXAMPLES.md               # Usage examples
  src/
      cli.py                # Interactive CLI interface
      logger.py             # Logging system
@@ -454,8 +512,6 @@ MIT - Create amazing projects freely!
 
 ## Support
 
-- Check [EXAMPLES.md](EXAMPLES.md) for more usage examples
-- Follow [GITHUB_LAUNCH.md](GITHUB_LAUNCH.md) for public release and growth
 - Review module docstrings for detailed API documentation
 - Modify `config.json` to customize for your needs
 
@@ -470,6 +526,6 @@ MIT - Create amazing projects freely!
 
 ---
 
-**Happy Building! **
+**Happy Building!**
 
-Made with by developers, for developers
+Made by developers, for developers
